@@ -12,8 +12,8 @@ BLIP introduces a new vision-language pre-training framework that excels in both
 
 ### Key Innovations
 
-![BLIP Architecture](images/figures/fig2.png)
-*Figure 2 from paper: Pre-training model architecture and objectives of BLIP*
+![BLIP Architecture](images/figures/figure2.png)
+*Figure: Pre-training model architecture and objectives of BLIP*
 
 1. **MED (Multimodal mixture of Encoder-Decoder)**
    - A unified architecture with three functionalities:
@@ -22,7 +22,7 @@ BLIP introduces a new vision-language pre-training framework that excels in both
      - Image-grounded text decoder
 
 2. **CapFilt (Captioning and Filtering)**
-   ![CapFilt Process](images/figures/fig1.png)
+   ![CapFilt Process](images/figures/figure1.png)
    *Figure 1 from paper: CapFilt bootstrapping process*
    - Bootstraps training data through:
      - Caption generation for web images
