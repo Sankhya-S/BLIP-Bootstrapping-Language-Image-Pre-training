@@ -195,7 +195,6 @@ Performance on NoCaps validation set:
 
 2. **Paper Resources**
    - [BLIP Paper on arXiv](https://arxiv.org/abs/2201.12086)
-   - [BLIP on Papers with Code](https://paperswithcode.com/paper/blip-bootstrapping-language-image-pre-training)
    * Includes benchmarks, results, and community implementations
    * Tracks state-of-the-art performance comparisons
 
