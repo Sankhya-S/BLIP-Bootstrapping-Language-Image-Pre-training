@@ -1,9 +1,9 @@
 # BLIP Architecture Pseudocode
-```
+```bibtex
 class BLIP_MED:  # Multimodal mixture of Encoder-Decoder
     def __init__(self):
         # Step 1: Initialize Vision Encoder
-        # Uses ViT (Vision Transformer) as described in Section 3.1
+        # Uses ViT (Vision Transformer)
         self.image_encoder = VisionTransformer(
             patch_size=16,  # Divides image into 16x16 patches
             embed_dim=768,  # ViT-Base configuration
@@ -11,17 +11,17 @@ class BLIP_MED:  # Multimodal mixture of Encoder-Decoder
         )
         
         # Step 2: Initialize Text Components
-        # Shared components between encoder and decoder (Section 3.1)
+        # Shared components between encoder and decoder 
         self.text_embeddings = TextEmbeddings()  # BERT-style text embeddings
         self.cross_attention = CrossAttentionLayer()  # For image-text interaction
         self.feed_forward = FeedForwardNetwork()  # Standard transformer FFN
         
         # Step 3: Initialize Different Self-Attention Types
-        # Key architectural difference for encoding vs decoding (Section 3.1)
+        # Key architectural difference for encoding vs decoding 
         self.bidirectional_self_attention = BidirectionalSelfAttention()  # BERT-style
         self.causal_self_attention = CausalSelfAttention()  # GPT-style
 
-    # Step 4: Implement Three Core Functionalities (Section 3.1)
+    # Step 4: Implement Three Core Functionalities 
     def unimodal_encoder(self, image, text):
         """Mode 1: Separate encoding for Image-Text Contrastive (ITC) learning
            Aligns vision and language representations in shared space"""
@@ -35,7 +35,7 @@ class BLIP_MED:  # Multimodal mixture of Encoder-Decoder
         # Get image features
         img_feat = self.image_encoder(image)
         # Prepare text with special token
-        text = "[Encode] + " + text  # As shown in Figure 2
+        text = "[Encode] + " + text  
         
         # Process through transformer layers
         for layer in range(num_layers):
@@ -67,7 +67,7 @@ class BLIP_MED:  # Multimodal mixture of Encoder-Decoder
             
         return text_features  # For next token prediction
 
-# Step 5: CapFilt Implementation (Section 3.3)
+# Step 5: CapFilt Implementation 
 class CapFilt:
     """Implements the Captioning and Filtering bootstrapping method"""
     def __init__(self):
@@ -90,7 +90,7 @@ class CapFilt:
         # Step 1: Generate synthetic captions
         synthetic_captions = []
         for image in web_images:
-            # Use nucleus sampling for diverse captions (Section 4.3)
+            # Use nucleus sampling for diverse captions 
             caption = self.captioner.generate(image, sampling='nucleus', p=0.9)
             synthetic_captions.append(caption)
 
@@ -105,23 +105,23 @@ class CapFilt:
 
         return filtered_data
 
-# Step 6: Training Process (Section 3.2)
+# Step 6: Training Process
 def train_BLIP():
     """Main training loop with three objectives"""
     # Define training objectives
     def compute_itc_loss(img_feat, txt_feat):
         """Contrastive loss with momentum distillation"""
-        # Implements contrastive learning as in Section 3.2
+        # Implements contrastive learning 
         pass
 
     def compute_itm_loss(img_txt_feat):
         """Binary classification with hard negative mining"""
-        # Implements matching as in Section 3.2
+        # Implements matching 
         pass
 
     def compute_lm_loss(generated_text, target_text):
         """Language modeling with label smoothing"""
-        # Implements generation as in Section 3.2
+        # Implements generation 
         pass
 
     # Training loop combining all objectives
