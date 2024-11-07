@@ -28,6 +28,31 @@ BLIP introduces a new vision-language pre-training framework that excels in both
      - Caption generation for web images
      - Filtering of noisy captions
 
+[Previous content remains the same until Key Innovations]
+
+### Discussion Questions for Deeper Understanding
+
+1. **Nucleus Sampling vs Beam Search**
+   
+   Question: "Why does BLIP use nucleus sampling instead of beam search for generating synthetic captions, even though nucleus sampling has a higher noise ratio (25% vs 19%)?"
+   
+   Discussion Points:
+   - Nucleus sampling generates more diverse and surprising captions
+   - Beam search tends to produce "safe" but common captions
+   - More diverse captions provide richer training signals
+   - Paper's ablation studies (Table 2) show better performance with nucleus sampling despite higher noise
+
+2. **Parameter Sharing Strategy**
+   
+   Question: "BLIP's architecture shares all parameters between the encoder and decoder except for the self-attention layers. What motivated this specific design choice?"
+   
+   Discussion Points:
+   - Encoder requires bidirectional attention for understanding
+   - Decoder needs causal attention for generation
+   - Sharing other parameters improves efficiency (reduces model size)
+   - Ablation studies (Table 3) show performance degradation when sharing all parameters
+   - Balance between model efficiency and task-specific requirements
+
 ## Implementation Demo
 
 The repository includes a Jupyter notebook demonstrating BLIP's key functionalities:
@@ -35,7 +60,7 @@ The repository includes a Jupyter notebook demonstrating BLIP's key functionalit
 - Visual Question Answering
 - Image-Text Matching
 
-## Setup
+### Setup
 ```
 pip install -r requirements.txt
 ```
