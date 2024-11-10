@@ -2,6 +2,9 @@
 
 A presentation and implementation of the paper "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation" by Junnan Li, Dongxu Li, Caiming Xiong, Steven Hoi (Salesforce Research).
 
+Here is the link to the recording of the presentation - 
+[BLIP presentation](https://drive.google.com/file/d/1cK09WK56bfMTw6-4oDqHVaW5Y4W8uEIc/view?usp=share_link)
+
 ## Paper Overview
 
 BLIP introduces a new vision-language pre-training framework that excels in both understanding and generation tasks. The paper addresses two major limitations in existing vision-language models:
@@ -122,27 +125,19 @@ pip install -r requirements.txt
 
 ### Areas for Further Development
 
-1. Scalability Challenges:
-   - Computational cost of CapFilt for larger datasets not fully explored
-   - Need for investigation of optimal scaling strategies
+1. **Key Technical Limitations**
+  - Scaling beyond 129M images not explored
+  - Simple frame sampling for video tasks (no temporal modeling)
 
-2. Methodological Opportunities:
-   - Multiple rounds of dataset bootstrapping not explored
-   - Potential for ensemble approaches in captioning and filtering
-   - Investigation of different sampling strategies beyond nucleus sampling
+2. **Potential Improvements**
+  - Multiple bootstrapping iterations possible
+  - Multiple captions per image could improve diversity
+  - Model ensemble approach for better filtering
 
-3. Data Considerations:
-   - Limited evaluation on non-English languages
-   - Bias analysis of synthetic captions not performed
-
-4. Implementation Aspects:
-   - Memory requirements for large-scale deployment
-
-5. Future Research:
-   - Extension to multi-modal tasks beyond vision-language
-   - Application to domain-specific tasks
-   - Potential for few-shot and zero-shot learning improvements
-
+3. **Future Directions**
+  - Better video understanding capabilities
+  - More efficient training strategies
+  - Domain-specific applications
 
 ## Impact and Significance in AI Landscape
 
