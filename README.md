@@ -57,8 +57,8 @@ Strong performance in understanding and answering image questions:
 Successfully transfers to video tasks without video training:
 - Text-to-Video Retrieval: 43.3% accuracy (surpassing video-specific models)
 - Video QA Performance:
- * MSRVTT-QA: 19.2%
- * MSVD-QA: 35.2%
+      * MSRVTT-QA: 19.2%
+      * MSVD-QA: 35.2%
 
 
 ## Discussion Questions for Deeper Understanding
