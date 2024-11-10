@@ -10,7 +10,7 @@ BLIP introduces a new vision-language pre-training framework that excels in both
 
 2. Data Perspective: Models relied heavily on noisy web-scraped data, which is suboptimal for learning.
 
-### Key Innovations
+## Key Innovations
 
 ![BLIP Architecture](images/figures/figure2.png)
 *Figure: Pre-training model architecture and objectives of BLIP*
@@ -28,8 +28,40 @@ BLIP introduces a new vision-language pre-training framework that excels in both
      - Caption generation for web images
      - Filtering of noisy captions
 
+## Key Results
 
-### Discussion Questions for Deeper Understanding
+### Image-Text Retrieval
+BLIP shows superior performance with minimal training data (14M images vs competitors' billions):
+
+**On COCO Dataset:**
+- Text-to-Image Retrieval: 80.6% accuracy (finding correct image for text)
+- Image-to-Text Retrieval: 63.1% accuracy (finding correct text for image)
+- Outperforms ALIGN (1.8B images) and SimVLM using 13× less training data
+
+### Image Captioning
+Achieves state-of-the-art results in generating image descriptions:
+
+**On NoCaps Dataset (CIDEr scores):**
+- Overall: 105.1 (+4.7 over previous best)
+- In-domain: 111.3 (familiar objects)
+- Near-domain: 104.5 (similar objects)
+- Out-domain: 102.4 (new objects)
+
+### Visual Question Answering
+Strong performance in understanding and answering image questions:
+- 77.54% accuracy on VQA test
+- 1.7% improvement over previous best (ALBEF)
+- Achieved with simpler architecture and less training data
+
+### Zero-shot Video Understanding
+Successfully transfers to video tasks without video training:
+- Text-to-Video Retrieval: 43.3% accuracy (surpassing video-specific models)
+- Video QA Performance:
+ * MSRVTT-QA: 19.2%
+ * MSVD-QA: 35.2%
+
+
+## Discussion Questions for Deeper Understanding
 
 1. **Nucleus Sampling vs Beam Search**
    
@@ -70,43 +102,6 @@ cd BLIP-Bootstrapping-Language-Image-Pre-training
 pip install -r requirements.txt
 ```
 
-## Key Results
-
-### Image-Text Retrieval 
-- BLIP (14M images) vs ALBEF:
-  - COCO: +2.7% improvement in average recall@1
-  - TR@1: 80.6% (+3.0%)
-  - IR@1: 63.1% (+2.4%)
-- Zero-shot Performance on Flickr30K:
-  - TR@1: 94.8% (+0.7% over ALBEF)
-  - IR@1: 84.9% (+2.1% over ALBEF)
-- Outperforms models trained on much larger datasets:
-  - Surpasses ALIGN (1.8B images) with only 14M images
-  - Achieves better results than SimVLM with 13× less training data
-
-### Image Captioning 
-Performance on NoCaps validation set:
-- Overall CIDEr: 105.1 (+4.7 over previous SOTA)
-- Breakdown by domain:
-  - In-domain: 111.3 CIDEr
-  - Near-domain: 104.5 CIDEr
-  - Out-domain: 102.4 CIDEr
-- COCO Caption test set:
-  - BLEU@4: 38.6
-  - CIDEr: 129.7
-
-### Visual Question Answering
-- VQA test-dev: 77.54% (+1.7% over ALBEF)
-- VQA test-std: 77.62%
-- Achieved with simpler architecture and less pre-training data
-
-### Video-Language Zero-shot Transfer
-- Text-to-video retrieval on MSRVTT:
-  - R@1: 43.3% (surpassing specially designed video models)
-  - MdR: 2.0
-- Video QA zero-shot performance:
-  - MSRVTT-QA: 19.2%
-  - MSVD-QA: 35.2%
 
 ## Critical Analysis
 
